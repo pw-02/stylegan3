@@ -3,3 +3,4 @@ prepared_data/
 __pycache__/
 logs
 cifar10_data
+metfaces
