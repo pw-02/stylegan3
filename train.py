@@ -125,7 +125,7 @@ def parse_comma_separated_list(s):
 
 # Required.
 @click.option('--outdir',       help='Where to save the results', metavar='DIR',                required=True, default='logs_metfaces')
-# @click.option('--cfg',          help='Base configuration',                                      type=click.Choice(['stylegan3-t', 'stylegan3-r', 'stylegan2']),default='stylegan3-t', required=True)
+@click.option('--cfg',          help='Base configuration',                                      type=click.Choice(['stylegan3-t', 'stylegan3-r', 'stylegan2']),default='stylegan3-t', required=True)
 @click.option('--data',         help='Training data', metavar='[ZIP|DIR]',                      type=str, required=True, default='metfaces')
 # @click.option('--data',         help='Training data', metavar='[ZIP|DIR]',                      type=str, required=True, default='imagenet/imagenet')
 
