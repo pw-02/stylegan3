@@ -124,13 +124,13 @@ def parse_comma_separated_list(s):
 @click.command()
 
 # Required.
-@click.option('--outdir',       help='Where to save the results', metavar='DIR',                required=True, default='logs')
-@click.option('--cfg',          help='Base configuration',                                      type=click.Choice(['stylegan3-t', 'stylegan3-r', 'stylegan2']),default='stylegan3-t', required=True)
-# @click.option('--data',         help='Training data', metavar='[ZIP|DIR]',                      type=str, required=True, default='metfaces')
-@click.option('--data',         help='Training data', metavar='[ZIP|DIR]',                      type=str, required=True, default='imagenet/imagenet')
+@click.option('--outdir',       help='Where to save the results', metavar='DIR',                required=True, default='logs_metfaces')
+# @click.option('--cfg',          help='Base configuration',                                      type=click.Choice(['stylegan3-t', 'stylegan3-r', 'stylegan2']),default='stylegan3-t', required=True)
+@click.option('--data',         help='Training data', metavar='[ZIP|DIR]',                      type=str, required=True, default='metfaces')
+# @click.option('--data',         help='Training data', metavar='[ZIP|DIR]',                      type=str, required=True, default='imagenet/imagenet')
 
 @click.option('--gpus',         help='Number of GPUs to use', metavar='INT',                    type=click.IntRange(min=1), required=True, default=1)
-@click.option('--batch',        help='Total batch size', metavar='INT',                         type=click.IntRange(min=1), required=True, default=32)
+@click.option('--batch',        help='Total batch size', metavar='INT',                         type=click.IntRange(min=1), required=True, default=16)
 @click.option('--gamma',        help='R1 regularization weight', metavar='FLOAT',               type=click.FloatRange(min=0), required=True, default=0.01)
 
 # Optional features.
@@ -156,7 +156,7 @@ def parse_comma_separated_list(s):
 @click.option('--metrics',      help='Quality metrics', metavar='[NAME|A,B,C|none]',            type=parse_comma_separated_list, default='fid50k_full,is50k', show_default=True)
 @click.option('--kimg',         help='Total training duration', metavar='KIMG',                 type=click.IntRange(min=1), default=1500, show_default=True)
 @click.option('--tick',         help='How often to print progress', metavar='KIMG',             type=click.IntRange(min=1), default=4, show_default=True)
-@click.option('--snap',         help='How often to save snapshots', metavar='TICKS',            type=click.IntRange(min=1), default=10, show_default=True)
+@click.option('--snap',         help='How often to save snapshots', metavar='TICKS',            type=click.IntRange(min=1), default=20, show_default=True)
 @click.option('--seed',         help='Random seed', metavar='INT',                              type=click.IntRange(min=0), default=0, show_default=True)
 @click.option('--fp32',         help='Disable mixed-precision', metavar='BOOL',                 type=bool, default=False, show_default=True)
 @click.option('--nobench',      help='Disable cuDNN benchmarking', metavar='BOOL',              type=bool, default=False, show_default=True)
