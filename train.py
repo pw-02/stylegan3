@@ -130,7 +130,7 @@ def parse_comma_separated_list(s):
 # @click.option('--data',         help='Training data', metavar='[ZIP|DIR]',                      type=str, required=True, default='imagenet/imagenet')
 
 @click.option('--gpus',         help='Number of GPUs to use', metavar='INT',                    type=click.IntRange(min=1), required=True, default=1)
-@click.option('--batch',        help='Total batch size', metavar='INT',                         type=click.IntRange(min=1), required=True, default=16)
+@click.option('--batch',        help='Total batch size', metavar='INT',                         type=click.IntRange(min=1), required=True, default=8)
 @click.option('--gamma',        help='R1 regularization weight', metavar='FLOAT',               type=click.FloatRange(min=0), required=True, default=0.01)
 
 # Optional features.
