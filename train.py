@@ -137,7 +137,7 @@ def parse_comma_separated_list(s):
 @click.option('--cond',         help='Train conditional model', metavar='BOOL',                 type=bool, default=False, show_default=True)
 @click.option('--mirror',       help='Enable dataset x-flips', metavar='BOOL',                  type=bool, default=False, show_default=True)
 @click.option('--aug',          help='Augmentation mode',                                       type=click.Choice(['noaug', 'ada', 'fixed']), default='ada', show_default=True)
-@click.option('--resume',       help='Resume from given network pickle', metavar='[PATH|URL]',  type=str)
+@click.option('--resume',       help='Resume from given network pickle', metavar='[PATH|URL]',  type=str, default = " logs_backup_metfaces/00003-stylegan3-t-imagenet-gpus1-batch32-gamma0.01/network-snapshot-001000.pkl")
 @click.option('--freezed',      help='Freeze first layers of D', metavar='INT',                 type=click.IntRange(min=0), default=0, show_default=True)
 
 # Misc hyperparameters.
@@ -154,7 +154,7 @@ def parse_comma_separated_list(s):
 # Misc settings.
 @click.option('--desc',         help='String to include in result dir name', metavar='STR',     type=str)
 @click.option('--metrics',      help='Quality metrics', metavar='[NAME|A,B,C|none]',            type=parse_comma_separated_list, default='fid50k_full,is50k', show_default=True)
-@click.option('--kimg',         help='Total training duration', metavar='KIMG',                 type=click.IntRange(min=1), default=1500, show_default=True)
+@click.option('--kimg',         help='Total training duration', metavar='KIMG',                 type=click.IntRange(min=1), default=logs_backup_metfaces/00003-stylegan3-t-imagenet-gpus1-batch32-gamma0.01, show_default=True)
 @click.option('--tick',         help='How often to print progress', metavar='KIMG',             type=click.IntRange(min=1), default=4, show_default=True)
 @click.option('--snap',         help='How often to save snapshots', metavar='TICKS',            type=click.IntRange(min=1), default=40, show_default=True)
 @click.option('--seed',         help='Random seed', metavar='INT',                              type=click.IntRange(min=0), default=0, show_default=True)
